@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- React Library-->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <!-- React DOM Library-->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- BABEL Library-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Product Card ReactJS</title>
+</head>
+<body>
+    <div id="app">React not rendered</div>
+
+    <script type="text/babel">
+
+        //Main Component
+        var ProductCard = function() {
+            var CardStyle = {
+                boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                maxWidth: 300,
+                margin: "auto",
+                textAlign: "center",
+                fontFamily: "arial"
+            }
+            return(
+                <div style={CardStyle}>
+                    <ProductImage/>
+                    <ProductTitle/>
+                    <ProductPrice/>
+                    <ProductDetails/>
+                    <AddToCartButton/>
+                </div>
+            );
+        }
+
+        //Product image Component
+        var ProductImage = function() {
+            //Style JSX object
+            var ProductImageStyle = {
+                width: "100%"
+            }
+            return(
+                <img style= {ProductImageStyle} src="data:image/jpeg;base64,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" alt="T-shirt"></img>
+            );
+        }
+
+        //Product Title
+        var ProductTitle = function() {
+            return(
+                <h1>T-Shirt</h1>
+            );
+        }
+
+        //Price
+        var ProductPrice = function() {
+            //Price style JSX object
+            var PriceStyle = {
+                color: "grey",
+                fontSize: 22
+            }
+            return(
+                <p style={PriceStyle}>19.99€</p>
+            );
+        }
+
+        //Product details
+        var ProductDetails = function() {
+            return(
+                <p>Text about the T-shirt</p>
+            );
+        }
+
+        //Add to cart button
+        var AddToCartButton = function() {
+            //add to cart style JSX object
+            var AddToCartButtonStyle = {
+                border: "none",
+                outline: 0,
+                padding: 12,
+                color: "white",
+                backgroundColor: "black",
+                textAlign: "center",
+                cursor: "pointer",
+                width: "100%",
+                fontSize: 18
+            }
+            return(
+                <p><button style={AddToCartButtonStyle}>Add to Cart</button></p>
+            );
+        }
+
+        ReactDOM.render(
+            <ProductCard/>,
+            document.getElementById("app")
+        )
+    </script>
+    
+</body>
+</html>
